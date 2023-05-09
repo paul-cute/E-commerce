@@ -1,3 +1,5 @@
+import Product from "@/components/Product";
+
 export default async function Home() {
 
   const res = await fetch("https://fakestoreapi.com/products");
@@ -10,9 +12,7 @@ export default async function Home() {
 
         <div className=''>
            {products.map((product) => (
-            <div key={product.id}>
-              <h1>{product.title}</h1>
-            </div>
+              <Product product={product} key={product.id}/>
            ))}
              {/* Products */}
         </div>
