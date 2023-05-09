@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import ProductImage from './ProductImage'
 
 interface Props {
     product: Product
@@ -7,12 +8,16 @@ interface Props {
 
 function Product({product}: Props) {
   return (
-    <Link href={`/product/${product.id}`}>
+    <Link 
+        prefetch={false}
+        href={`/product/${product.id}`} 
+        className='h-96 flex flex-col p-5 rounded border group hover:scale-105 transition-transform ease-out duration-200'
+    >
         <div>
-            {/* <ProductImage product={product} fill/> */}
+            <ProductImage product={product} fill/>
         </div>
 
-        <div>
+        <div className='font-semibold flex items-center justify-between mt-4 mb-1'>
             <p className='w-44 truncate'>{product.title}</p>
             <p>€{product.price}</p>
         </div>

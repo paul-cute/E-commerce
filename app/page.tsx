@@ -5,7 +5,6 @@ export default async function Home() {
   const res = await fetch("https://fakestoreapi.com/products");
   const products: Product[] = await res.json()
 
-  console.log(products)
   return (
     <main className="">
       <section className='flex flex-col space-y-12 pb-44'>
